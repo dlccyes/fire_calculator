@@ -2,11 +2,14 @@
   "name": "fire-calculator",
   "version": "1.0.0",
   "description": "FIRE Calculator - Financial Independence Retire Early Calculator",
+  "homepage": "https://dlcc.github.io/fire_calculator",
   "main": "src/index.js",
   "scripts": {
     "start": "webpack serve --mode development",
     "build": "webpack --mode production",
-    "test": "jest"
+    "test": "jest",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist"
   },
   "dependencies": {
     "@emotion/react": "^11.11.3",
