@@ -242,9 +242,9 @@ const FireCalculator = () => {
                             Basic Information
                         </Typography>
                         <Grid container spacing={2}>
-                            <Grid item xs={3}>
+                            <Grid item xs={12} sm={6} md={6}>
                                 <TextField
-                                    sx={{ width: '100%', minWidth: '120px' }}
+                                    fullWidth
                                     label="Current Age"
                                     name="currentAge"
                                     type="number"
@@ -253,9 +253,9 @@ const FireCalculator = () => {
                                     inputProps={{ min: 0 }}
                                 />
                             </Grid>
-                            <Grid item xs={3}>
+                            <Grid item xs={12} sm={6} md={6}>
                                 <TextField
-                                    sx={{ width: '100%', minWidth: '120px' }}
+                                    fullWidth
                                     label="End Age"
                                     name="endAge"
                                     type="number"
@@ -264,9 +264,9 @@ const FireCalculator = () => {
                                     inputProps={{ min: inputs.currentAge + 1 }}
                                 />
                             </Grid>
-                            <Grid item xs={6}>
+                            <Grid item xs={12}>
                                 <TextField
-                                    sx={{ width: '100%', minWidth: '200px' }}
+                                    fullWidth
                                     label="Current Net Worth"
                                     name="currentNetWorth"
                                     type="number"
@@ -278,9 +278,9 @@ const FireCalculator = () => {
                                     inputProps={{ min: 0 }}
                                 />
                             </Grid>
-                            <Grid item xs={6}>
+                            <Grid item xs={12} sm={6}>
                                 <TextField
-                                    sx={{ width: '100%', minWidth: '200px' }}
+                                    fullWidth
                                     label="Nominal Annual Return (%)"
                                     name="annualReturn"
                                     type="number"
@@ -289,9 +289,9 @@ const FireCalculator = () => {
                                     inputProps={{ min: 0, max: 100 }}
                                 />
                             </Grid>
-                            <Grid item xs={6}>
+                            <Grid item xs={12} sm={6}>
                                 <TextField
-                                    sx={{ width: '100%', minWidth: '200px' }}
+                                    fullWidth
                                     label="Inflation Rate (%)"
                                     name="inflationRate"
                                     type="number"
@@ -300,9 +300,9 @@ const FireCalculator = () => {
                                     inputProps={{ min: 0, max: 100 }}
                                 />
                             </Grid>
-                            <Grid item xs={6}>
+                            <Grid item xs={12} sm={6}>
                                 <TextField
-                                    sx={{ width: '100%', minWidth: '200px' }}
+                                    fullWidth
                                     label="Retirement Spending"
                                     name="retirementSpending"
                                     type="number"
@@ -314,9 +314,9 @@ const FireCalculator = () => {
                                     inputProps={{ min: 0 }}
                                 />
                             </Grid>
-                            <Grid item xs={6}>
+                            <Grid item xs={12} sm={6}>
                                 <TextField
-                                    sx={{ width: '100%', minWidth: '200px' }}
+                                    fullWidth
                                     label="Withdrawal Rate (%)"
                                     name="withdrawalRate"
                                     type="number"
@@ -354,9 +354,9 @@ const FireCalculator = () => {
                                     inputProps={{ min: 0 }}
                                 />
                             </Grid>
-                            <Grid item xs={6}>
+                            <Grid item xs={12} sm={6}>
                                 <TextField
-                                    sx={{ width: '100%', minWidth: '200px' }}
+                                    fullWidth
                                     label="Employer Match (%)"
                                     name="employerMatch"
                                     type="number"
@@ -365,9 +365,9 @@ const FireCalculator = () => {
                                     inputProps={{ min: 0, max: 100 }}
                                 />
                             </Grid>
-                            <Grid item xs={6}>
+                            <Grid item xs={12} sm={6}>
                                 <TextField
-                                    sx={{ width: '100%', minWidth: '200px' }}
+                                    fullWidth
                                     label="Backdoor Roth (%)"
                                     name="backdoorRoth"
                                     type="number"
@@ -388,9 +388,9 @@ const FireCalculator = () => {
                         </Typography>
                         {yearlySpending.map((item) => (
                             <Grid container spacing={2} key={item.id} sx={{ mb: 2 }}>
-                                <Grid item xs={3}>
+                                <Grid item xs={12} sm={3}>
                                     <TextField
-                                        sx={{ width: '100%', minWidth: '120px' }}
+                                        fullWidth
                                         label="Start Age"
                                         type="number"
                                         value={item.startAge}
@@ -398,9 +398,9 @@ const FireCalculator = () => {
                                         inputProps={{ min: inputs.currentAge, max: inputs.endAge }}
                                     />
                                 </Grid>
-                                <Grid item xs={3}>
+                                <Grid item xs={12} sm={3}>
                                     <TextField
-                                        sx={{ width: '100%', minWidth: '120px' }}
+                                        fullWidth
                                         label="End Age"
                                         type="number"
                                         value={item.endAge}
@@ -408,9 +408,9 @@ const FireCalculator = () => {
                                         inputProps={{ min: inputs.currentAge, max: inputs.endAge }}
                                     />
                                 </Grid>
-                                <Grid item xs={5}>
+                                <Grid item xs={12} sm={5}>
                                     <TextField
-                                        sx={{ width: '100%', minWidth: '200px' }}
+                                        fullWidth
                                         label="Amount"
                                         type="number"
                                         value={item.spending}
@@ -421,7 +421,7 @@ const FireCalculator = () => {
                                         inputProps={{ min: 0 }}
                                     />
                                 </Grid>
-                                <Grid item xs={1}>
+                                <Grid item xs={12} sm={1} sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                                     <IconButton onClick={() => removeSpending(yearlySpending.indexOf(item))} color="error">
                                         <DeleteIcon />
                                     </IconButton>
@@ -462,9 +462,9 @@ const FireCalculator = () => {
                         </Grid>
                         {yearlyIncome.map((item) => (
                             <Grid container spacing={2} key={item.id} sx={{ mb: 2 }}>
-                                <Grid item xs={3}>
+                                <Grid item xs={12} sm={3}>
                                     <TextField
-                                        sx={{ width: '100%', minWidth: '120px' }}
+                                        fullWidth
                                         label="Start Age"
                                         type="number"
                                         value={item.startAge}
@@ -472,9 +472,9 @@ const FireCalculator = () => {
                                         inputProps={{ min: inputs.currentAge, max: inputs.endAge }}
                                     />
                                 </Grid>
-                                <Grid item xs={3}>
+                                <Grid item xs={12} sm={3}>
                                     <TextField
-                                        sx={{ width: '100%', minWidth: '120px' }}
+                                        fullWidth
                                         label="End Age"
                                         type="number"
                                         value={item.endAge}
@@ -482,9 +482,9 @@ const FireCalculator = () => {
                                         inputProps={{ min: inputs.currentAge, max: inputs.endAge }}
                                     />
                                 </Grid>
-                                <Grid item xs={5}>
+                                <Grid item xs={12} sm={5}>
                                     <TextField
-                                        sx={{ width: '100%', minWidth: '200px' }}
+                                        fullWidth
                                         label="Amount"
                                         type="number"
                                         value={item.income}
@@ -495,7 +495,7 @@ const FireCalculator = () => {
                                         inputProps={{ min: 0 }}
                                     />
                                 </Grid>
-                                <Grid item xs={1}>
+                                <Grid item xs={12} sm={1} sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                                     <IconButton onClick={() => removeIncome(yearlyIncome.indexOf(item))} color="error">
                                         <DeleteIcon />
                                     </IconButton>
@@ -600,7 +600,7 @@ const FireCalculator = () => {
                                 {results && (
                                     <Box sx={{ width: '100%', overflowX: 'auto' }}>
                                         <TableContainer>
-                                            <Table stickyHeader size="small">
+                                            <Table size="small">
                                                 <TableHead>
                                                     <TableRow>
                                                         <TableCell><strong>Age</strong></TableCell>
