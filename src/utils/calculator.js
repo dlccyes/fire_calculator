@@ -27,7 +27,7 @@ function calculateYearlyData(year, yearlyIncome, yearlySpending, stopAtFire, ret
   };
 }
 
-function calculateIncomeTax(grossIncome, state, preTax401k, backdoorRoth, employerMatch) {
+function calculateIncomeTax(grossIncome, state, preTax401k, employerMatch) {
   if (grossIncome <= 0) {
     return {
       totalAvailableIncome: 0,
@@ -36,12 +36,10 @@ function calculateIncomeTax(grossIncome, state, preTax401k, backdoorRoth, employ
     };
   }
   
-  const backdoorRothAmount = grossIncome * backdoorRoth;
   const taxData = {
     income: grossIncome,
     state: state,
-    preTax401k: preTax401k,
-    backdoorRoth: backdoorRothAmount
+    preTax401k: preTax401k
   };
   
   const taxResult = calculateTaxes(taxData);
@@ -83,7 +81,6 @@ export function calculateFireProjection(data) {
   const withdrawalRate = data.withdrawalRate / 100;
   const preTax401k = data.preTax401k;
   const employerMatch = data.employerMatch / 100;
-  const backdoorRoth = data.backdoorRoth / 100;
   const state = data.state || 'CA';
   const stopAtFire = data.stopAtFire || false;
   
@@ -116,7 +113,7 @@ export function calculateFireProjection(data) {
     );
     
     const { totalAvailableIncome } = calculateIncomeTax(
-      grossIncome, state, preTax401k, backdoorRoth, employerMatch
+      grossIncome, state, preTax401k, employerMatch
     );
     
     const { realBalance, realInterestEarned } = calculateNetWorth(
@@ -154,7 +151,7 @@ export function calculateFireProjection(data) {
     yearlySpending = newYearlySpending;
     
     const { totalAvailableIncome, effectiveTaxRate } = calculateIncomeTax(
-      grossIncome, state, preTax401k, backdoorRoth, employerMatch
+      grossIncome, state, preTax401k, employerMatch
     );
     
     const { realBalance, realInterestEarned } = calculateNetWorth(

@@ -124,8 +124,7 @@ const FireCalculator = () => {
         withdrawalRate: 4,
         state: 'CA',
         preTax401k: 23000,
-        employerMatch: 5,
-        backdoorRoth: 10
+        employerMatch: 5
     });
 
     const [yearlySpending, setYearlySpending] = React.useState([
@@ -354,24 +353,13 @@ const FireCalculator = () => {
                                     inputProps={{ min: 0 }}
                                 />
                             </Grid>
-                            <Grid item xs={12} sm={6}>
+                            <Grid item xs={12}>
                                 <TextField
                                     fullWidth
                                     label="Employer Match (%)"
                                     name="employerMatch"
                                     type="number"
                                     value={inputs.employerMatch}
-                                    onChange={handleInputChange}
-                                    inputProps={{ min: 0, max: 100 }}
-                                />
-                            </Grid>
-                            <Grid item xs={12} sm={6}>
-                                <TextField
-                                    fullWidth
-                                    label="Backdoor Roth (%)"
-                                    name="backdoorRoth"
-                                    type="number"
-                                    value={inputs.backdoorRoth}
                                     onChange={handleInputChange}
                                     inputProps={{ min: 0, max: 100 }}
                                 />
